@@ -70,12 +70,24 @@
         </div>
     </div>
     <ul class="pagination justify-content-end">
-        <li class=""page-item">
-        <a class="page-link" href="<?php echo $data['next_page'] ?>">Next Page</a>
-        </li>
-        <li>
-            <a class="page-link" href="<?php echo $data['prev_page']?>">Previous Page</a>
-        </li>
+        <?php
+        $next_page = $data['next_page'];
+        $prev_page = $data['prev_page'];
+
+        if ($data['current_page_no'] != $data['total_pages'])
+        {
+            echo "<li class='page-item'>
+                    <a class='page-link' href=$next_page>Next Page</a>
+                    </li>";
+        }
+        if ($data['current_page_no'] !=1)
+        {
+            echo "<li>
+            <a class='page-link' href=$prev_page>Previous Page</a>
+                </li>";
+        }
+        ?>
+
     </ul>
 
     </div>
